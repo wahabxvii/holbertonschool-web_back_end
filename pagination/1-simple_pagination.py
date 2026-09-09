@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+"""
+module with a class Server that find the page size
+and it's indexes.
+"""
+
 import csv
 import math
 from typing import List
