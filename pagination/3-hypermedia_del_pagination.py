@@ -41,6 +41,14 @@ class Server:
 
     def get_hyper_index(self, index = None, page_size: int = 10) -> dict:
         """Creates a dictionary of indexed hypermedia
+
+        Args:
+            index: the current page index.
+            page_size (int): the size the returned page.
+
+        Return:
+            a dictionary containig index, data,
+            page_size, next_index.
         """
         if index is None:
             index = 0
