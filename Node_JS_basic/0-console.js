@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const displayMessage = function (message) {
+const displayMessage = (message) => {
   console.log(message);
 };
 
