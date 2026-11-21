@@ -1,0 +1,10 @@
+{
+  "name": "node_js_basic",
+  "version": "1.0.0",
+  "description": "NodeJS Basics",
+  "scripts": { "lint": "./node_modules/.bin/eslint" },
+  "author": "wahabxvii",
+  "license": "MIT",
+  "devDependencies": { "eslint": "^6.8.0" },
+  "dependencies": { "express": "^4.17.1" }
+}
