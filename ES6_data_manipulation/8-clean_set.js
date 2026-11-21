@@ -1,6 +1,7 @@
-export default function cleanSet(set,startString) {
+export default function cleanSet(set, startString) {
+  if (!startString || typeof startString !== "string") return "";
   return [...set]
-    .filter((value) => value.startsWith(startString))
-    .map((value) => value.substring(startString.length))
-    .join('-');
+    .filter((val) => typeof val === "string" && val.startsWith(startString))
+    .map((val) => val.slice(startString.length))
+    .join("-");
 }
