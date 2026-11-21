@@ -10,9 +10,9 @@ app.get('/', (req, res) => {
 
 app.get('/students', (req, res) => {
   res.write('This is the list of our students\n');
-  countStudents(process.argv[2])
+  countStudents(process.argv[2], (line) => res.write(`${line}\n`))
     .then(() => res.end())
-    .catch((err) => res.end(`${err.message}`));
+    .catch((err) => res.end(err.message));
 });
 
 app.listen(1245);

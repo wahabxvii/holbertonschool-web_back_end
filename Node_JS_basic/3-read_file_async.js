@@ -1,8 +1,12 @@
 #!/usr/bin/node
 const fs = require('fs');
 
-function countStudents(path) {
+function countStudents(path, output = console.log) {
   return new Promise((resolve, reject) => {
+    if (!path) {
+      reject(new Error('Cannot load the database'));
+      return;
+    }
     fs.readFile(path, 'utf-8', (err, data) => {
       if (err) {
         reject(new Error('Cannot load the database'));
@@ -18,7 +22,7 @@ function countStudents(path) {
         });
         return student;
       });
-      console.log(`Number of students: ${students.length}`);
+      output(`Number of students: ${students.length}`);
       const fields = {};
       students.forEach((student) => {
         if (!student.field) {
@@ -30,7 +34,7 @@ function countStudents(path) {
         fields[student.field].push(student.firstname);
       });
       Object.keys(fields).forEach((field) => {
-        console.log(`Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}`);
+        output(`Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}`);
       });
       resolve();
     });
