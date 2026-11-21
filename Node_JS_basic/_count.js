@@ -1,8 +1,8 @@
 function report (data) {
   const rows = data.toString().split('\n').filter((row) => row.length > 0);
-  const headers = rows[0].split(';');
+  const headers = rows[0].split(',');
   const students = rows.slice(1).map((row) => {
-    const values = row.split(';');
+    const values = row.split(',');
     const student = {};
     headers.forEach((header, index) => {
       student[header] = values[index];
