@@ -1,7 +1,7 @@
 import readDatabase from '../utils';
 
 class StudentsController {
-  static getAllStudents (request, response) {
+  static getAllStudents(request, response) {
     readDatabase(process.argv[2] || './database.csv')
       .then((students) => {
         const fields = Object.keys(students)
@@ -14,7 +14,7 @@ class StudentsController {
       });
   }
 
-  static getAllStudentsByMajor (request, response) {
+  static getAllStudentsByMajor(request, response) {
     const { major } = request.params;
     if (major !== 'CS' && major !== 'SWE') {
       response.status(500).send('Major parameter must be CS or SWE');
